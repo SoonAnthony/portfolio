@@ -2,6 +2,10 @@ import os
 from pathlib import Path
 import dj_database_url
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 from dotenv import load_dotenv  
 load_dotenv()                   
 
@@ -37,6 +41,9 @@ INSTALLED_APPS = [
     'portfolioapp',  # your main app
     'contacts',      # your contact form app
     'widget_tweaks', # if you're using it in forms
+
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 # Middleware
@@ -80,6 +87,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Cloudinary Configuration
+cloudinary.config( 
+  cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'), 
+  api_key = os.getenv('CLOUDINARY_API_KEY'), 
+  api_secret = os.getenv('CLOUDINARY_API_SECRET') 
+)
+# Whitenoise for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
