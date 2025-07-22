@@ -99,10 +99,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_postgres_xfwp',
+        'USER': 'portfolio_postgres_xfwp_user',
+        'PASSWORD': '10ahn2obK8OrJXgO33R04dFoDs4faBMK',
+        'HOST': 'dpg-d1vp07ngi27c738fklbg-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }
 }
 
 # Auto Field
