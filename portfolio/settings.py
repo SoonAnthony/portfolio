@@ -100,12 +100,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:41324088%23shisia@db.axabyinojfnoifnvphky.supabase.co:5432/postgres',
         conn_max_age=600,
         ssl_require=True
     )
 }
-
 
 # Auto Field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
